@@ -9,9 +9,9 @@ def main():
         reader = csv.DictReader(file)
         for row in reader:
             if row['From'] in slownik_polaczen:
-                slownik_polaczen[row['From']] += 1
+                slownik_polaczen[int(row['From'])] += 1
             else:
-                slownik_polaczen[row['From']] = 1
+                slownik_polaczen[int(row['From'])] = 1
     result_niesortowany = list(slownik_polaczen.items())
     result_posortowany = sorted(result_niesortowany,key=itemgetter(1), reverse=True)
     print(result_posortowany[0])
